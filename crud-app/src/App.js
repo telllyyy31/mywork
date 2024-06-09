@@ -33,7 +33,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Simple CRUD Output for Rapidoo Ph</h1>
+      <h1>CRUD</h1>
       <form className="form">
       <input
         type="text"
