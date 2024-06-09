@@ -4,7 +4,7 @@ import './App.css';
 
 const App = () => {
   const [items, setItems] = useState([]);
-  const [currentItem, setCurrentItem] = useState({ id: null, name: '', surname: '' });
+  const [currentItem, setCurrentItem] = useState({ id: null, name: '', surname: '', emai: '' });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -12,9 +12,9 @@ const App = () => {
   };
 
   const addItem = () => {
-    if (currentItem.name && currentItem.surname) {
-      setItems([...items, { id: uuidv4(), name: currentItem.name, surname: currentItem.surname }]);
-      setCurrentItem({ id: null, name: '', surname: '' });
+    if (currentItem.name && currentItem.surname && currentItem.email) {
+      setItems([...items, { id: uuidv4(), name: currentItem.name, surname: currentItem.surname, email: currentItem.email}]);
+      setCurrentItem({ id: null, name: '', surname: '', email:'' });
     }
   };
 
@@ -28,12 +28,13 @@ const App = () => {
 
   const updateItem = () => {
     setItems(items.map((item) => (item.id === currentItem.id ? currentItem : item)));
-    setCurrentItem({ id: null, name: '', surname: '' });
+    setCurrentItem({ id: null, name: '', surname: '', email: '' });
   };
 
   return (
     <div className="App">
-      <h1>Simple CRUD</h1>
+      <h1>Simple CRUD Output for Rapidoo Ph</h1>
+      <form className="form">
       <input
         type="text"
         name="name"
@@ -48,13 +49,21 @@ const App = () => {
         onChange={handleInputChange}
         placeholder='Surname'
       />
-      <button onClick={currentItem.id ? updateItem : addItem}>
+      <input
+          type="email"
+          name="email"
+          value={currentItem.email}
+          onChange={handleInputChange}
+          placeholder="Email"
+        />
+      <button type="button" onClick={currentItem.id ? updateItem : addItem}>
         {currentItem.id ? 'Update' : 'Add'}
       </button>
+      </form>
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.name} {item.surname}
+            {item.name} {item.surname} {item.email}
             <button onClick={() => editItem(item)}>Edit</button>
             <button onClick={() => deleteItem(item.id)}>Delete</button>
           </li>

@@ -4,20 +4,44 @@
 .App {
   font-family: sans-serif;
   text-align: center;
-  margin-top: 250px;
   color: aliceblue;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+h1{
+  text-align: center;
+}
+.form{
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #ffeeee;
+  margin-left: 1px;
+}
+.form button {
+  padding: 9px;
+  background-color: #0a0a0a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 0px;
 }
 
-input {
-  margin: 10px;
-  padding: 5px;
-  text-align: justify;
+.form button:hover {
+  background-color: #e96272;
 }
 
-button {
-  margin: 5px;
-  padding: 5px 10px;
-}
 
 ul {
   list-style-type: none;
@@ -25,14 +49,28 @@ ul {
 }
 
 li {
-  margin: 10px 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-button {
+li button {
   margin-left: 10px;
-  color: rgb(247, 247, 252);
-  background-color: black;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
+li button:nth-child(2) {
+  background-color: #e96272;
+  color: white;
+}
+
+li button:nth-child(2):hover {
+  background-color: #000000;
+}
+
